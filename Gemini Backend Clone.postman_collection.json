@@ -1,0 +1,511 @@
+{
+	"info": {
+		"_postman_id": "194406be-29bb-43f8-a6c0-69685e2426ce",
+		"name": "Gemini Backend Clone",
+		"description": "Test Gemini Backend Clone Endpoints.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34889732"
+	},
+	"item": [
+		{
+			"name": "signup",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "phone",
+							"value": "123456",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "abcd123",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "John Doe",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseURL}}/v1/auth/send-otp",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"v1",
+						"auth",
+						"send-otp"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "send-otp",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "phone",
+							"value": "123456",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "abcd123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseURL}}/v1/auth/send-otp",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"v1",
+						"auth",
+						"send-otp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verify-otp",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "phone",
+							"value": "123456",
+							"type": "text"
+						},
+						{
+							"key": "otp",
+							"value": "1390",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseURL}}/v1/auth/verify-otp",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"v1",
+						"auth",
+						"verify-otp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "forgot-password",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "phone",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseURL}}/v1/auth/forgot-password",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"v1",
+						"auth",
+						"forgot-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "change-password",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInBob25lIjoiMTIzNDU2IiwiaWF0IjoxNzU3OTQxNTcxLCJleHAiOjE3NTc5NDI3NzF9.4ZhwHFNrqZGYsGzAXbO7bRs_UXpeh1z4JZDbFdJJ5y4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "phone",
+							"value": "123456",
+							"type": "text"
+						},
+						{
+							"key": "passwordChangeOTP",
+							"value": "3712",
+							"type": "text"
+						},
+						{
+							"key": "oldPassword",
+							"value": "abcd123",
+							"type": "text"
+						},
+						{
+							"key": "newPassword",
+							"value": "abcd1234",
+							"type": "text"
+						},
+						{
+							"key": "confNewPassword",
+							"value": "abcd1234",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseURL}}/v1/auth/change-password",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"v1",
+						"auth",
+						"change-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/user/me",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInBob25lIjoiMTIzNDU2IiwiaWF0IjoxNzU3OTQxNTcxLCJleHAiOjE3NTc5NDI3NzF9.4ZhwHFNrqZGYsGzAXbO7bRs_UXpeh1z4JZDbFdJJ5y4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/v1/user/me",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"v1",
+						"user",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create chatroom",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInBob25lIjoiMTIzNDU2IiwiaWF0IjoxNzU3OTQxNTcxLCJleHAiOjE3NTc5NDI3NzF9.4ZhwHFNrqZGYsGzAXbO7bRs_UXpeh1z4JZDbFdJJ5y4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/v1/chatroom",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"v1",
+						"chatroom"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list all chatrooms",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInBob25lIjoiMTIzNDU2IiwiaWF0IjoxNzU3OTQxNTcxLCJleHAiOjE3NTc5NDI3NzF9.4ZhwHFNrqZGYsGzAXbO7bRs_UXpeh1z4JZDbFdJJ5y4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/v1/chatroom",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"v1",
+						"chatroom"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "details on specific chatroom",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInBob25lIjoiMTIzNDU2IiwiaWF0IjoxNzU3OTQxNTcxLCJleHAiOjE3NTc5NDI3NzF9.4ZhwHFNrqZGYsGzAXbO7bRs_UXpeh1z4JZDbFdJJ5y4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/v1/chatroom/3Su32JLSGq1JZTpg2w3BEr",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"v1",
+						"chatroom",
+						"3Su32JLSGq1JZTpg2w3BEr"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "send message",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInBob25lIjoiMTIzNDU2IiwiaWF0IjoxNzU3OTQxNTcxLCJleHAiOjE3NTc5NDI3NzF9.4ZhwHFNrqZGYsGzAXbO7bRs_UXpeh1z4JZDbFdJJ5y4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userPrompt\": \"What is the capital of India ?\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/v1/chatroom/3Su32JLSGq1JZTpg2w3BEr/message",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"v1",
+						"chatroom",
+						"3Su32JLSGq1JZTpg2w3BEr",
+						"message"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get last message",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInBob25lIjoiMTIzNDU2IiwiaWF0IjoxNzU3OTQxNTcxLCJleHAiOjE3NTc5NDI3NzF9.4ZhwHFNrqZGYsGzAXbO7bRs_UXpeh1z4JZDbFdJJ5y4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/v1/chatroom/3Su32JLSGq1JZTpg2w3BEr/message",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"v1",
+						"chatroom",
+						"3Su32JLSGq1JZTpg2w3BEr",
+						"message"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all messages of specific room",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInBob25lIjoiMTIzNDU2IiwiaWF0IjoxNzU3OTQxNTcxLCJleHAiOjE3NTc5NDI3NzF9.4ZhwHFNrqZGYsGzAXbO7bRs_UXpeh1z4JZDbFdJJ5y4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/v1/chatroom/3Su32JLSGq1JZTpg2w3BEr/message/all",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"v1",
+						"chatroom",
+						"3Su32JLSGq1JZTpg2w3BEr",
+						"message",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "subscribe to pro",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInBob25lIjoiMTIzNDU2IiwiaWF0IjoxNzU3OTQxNTcxLCJleHAiOjE3NTc5NDI3NzF9.4ZhwHFNrqZGYsGzAXbO7bRs_UXpeh1z4JZDbFdJJ5y4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/v1/subscribe/pro",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"v1",
+						"subscribe",
+						"pro"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get subscription status",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInBob25lIjoiMTIzNDU2IiwiaWF0IjoxNzU3OTQyOTAxLCJleHAiOjE3NTc5NDQxMDF9.ocYM-0x8l1AWAcZ-KoHsix797KAsO_q8ujI-98SQU-4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/v1/subscription/status",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"v1",
+						"subscription",
+						"status"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
