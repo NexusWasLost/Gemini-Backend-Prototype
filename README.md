@@ -20,7 +20,7 @@ login, Gemini API-powered AI conversations, and subscription handling via Stripe
 
 1. Clone the repository
 ```shell
-git clone https://github.com/nexus949/Gemini-Backend-Clone.git
+git clone https://github.com/NexusWasLost/Gemini-Backend-Clone.git
 ```
 
 2. Navigate into the repo
