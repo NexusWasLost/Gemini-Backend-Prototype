@@ -1,6 +1,6 @@
-# Gemini Backend Clone
+# Gemini Backend Prototype
 
-A Fully Functional Gemini Backend Clone project, assignment for Kuvaka Tech.
+A fully functional Gemini backend prototype, developed as an assignment for { Confidential Company Name }.
 
 ## 💡 Objective
 Develop a Gemini-style backend system that enables user-specific chatrooms, OTP-based
