@@ -2,17 +2,17 @@
 
 A fully functional Gemini backend prototype, developed as an assignment for { Confidential Company Name }.
 
-## 💡 Objective
+## Objective
 Develop a Gemini-style backend system that enables user-specific chatrooms, OTP-based
 login, Gemini API-powered AI conversations, and subscription handling via Stripe.
 
-### 💻 Tech Stack
+### Tech Stack
 - Node.js - For Main Backend Runtime needed to run JavaScript.
 - Express.js - REST API framework for handling HTTP Requests.
 - PostgreSQL - Powerful Relational Database Management System for data storage.
 - Stripe - Payments platform integrated via stripe sandbox.
 
-### 📦 Installation
+### Installation
  To run it locally follow the given instructions below:
 
 **PRE-REQUISITES :** Node.js, PostgreSQL and stripe CLI installed in system.
@@ -70,7 +70,7 @@ Server Runs on PORT 3000 by default ! Postman can be used to hit endpoints.
 
 ---
 
-### 🚀 Design Idea and Choices
+### Design Idea and Choices
 
 - The application has 3 main parts - Authentication via OTP, Gemini Chatrooms and Payments via Stripe.
 - Stripe Sandbox is used as needed by The assignment to initiate mock payments with mock details.
@@ -89,7 +89,7 @@ Server Runs on PORT 3000 by default ! Postman can be used to hit endpoints.
 - Gemini is contextless i.e. does not persists context between responses. I avoided context due to added complexity.
 - An idea to handle context is a sliding window where messages within a window are passed and it moves per request and response.
 
-### 🔨 Key Services Used
+### Key Services Used
 
 - [BullMQ](https://bullmq.io/) - Message Queue.
 - [Upstash](https://upstash.com/) - Redis Cloud Server.
@@ -100,7 +100,7 @@ Server Runs on PORT 3000 by default ! Postman can be used to hit endpoints.
 - [Node Cache](https://www.npmjs.com/package/node-cache) - Used as caching library for efficient caching.
 - [Stripe CLI](https://github.com/stripe/stripe-cli) - Needed to forward webhooks to localhost.
 
-### 🧪 How to Test Via Postman
+### How to Test Via Postman
 
 Below are all the valid endpoints and can be easily hit using the correct HTTP method. Bootup postman type the correct URL and HTTP method and press SEND.
 
@@ -124,7 +124,7 @@ Below are all the valid endpoints and can be easily hit using the correct HTTP m
 
 ---
 
-### 💸 Stripe integration screenshot
+### Stripe integration screenshot
 
 [![Stripe-Integration.png](https://i.postimg.cc/Y2v6rFRF/Stripe-Integration.png)](https://postimg.cc/F1QdG72F)
 
@@ -150,7 +150,7 @@ This model is chose primarily for speed and efficiency, since its a smaller mode
 This ensures that the response received is concise and Direct.
 
 
-### 🛴 Queue Logic
+### Queue Logic
 
 Pretty rough on this one, I didn't knew what a queue is 3 days ago but managed to use it in my assignment as required.
 
@@ -161,7 +161,7 @@ The basic flow is user send a prompt -> The prompt is received and a pushed to t
 Once the task is successfully added to the queue the user is returned with a prompt of the task being accepted. A Worker process runs in the background that then handles the tasks in the active queue. Once finished the worker stores both the prompt and response received from Gemini in Database. The user can then hit `/v1/chatroom/:id/message` endpoint to get the response or just hit `/v1/chatroom/:id/message/all` to get all the messages.
 
 
-### 🌎 Deployment
+### Deployment
 
 Sadly I was not able to deploy it due to money concerns. I primarily tried to host it on [Render](https://render.com/) but the project consists of a background process, The Worker for handling Queued Tasks and sadly deploying a worker process on Render is not free so I decided not to deploy.
 
